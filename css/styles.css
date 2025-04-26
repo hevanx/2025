@@ -1,0 +1,138 @@
+/* General Styling */
+body {
+    
+    background-color: #ffffff;
+
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    
+        background-image: url('house shirt.png'); /* Path to your image */
+        background-size: cover;  /* Makes the image cover the whole screen */
+        background-position: center;  /* Centers the image */
+        background-repeat: no-repeat; /* Prevents repeating */
+        height: 100vh; /* Ensures the body takes full viewport height */
+        margin: 0;
+        padding: 0;
+    
+    
+}
+
+/* Fullscreen Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: rgb(0, 0, 0);
+}
+h4 {
+    color: rgb(17, 0, 255);
+    text-align: center
+}
+
+
+.hero h2 {
+    font-size: 1.8rem;
+    margin: 10px 0 30px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    color: rgb(0, 0, 0);
+}
+
+.album-cover {
+    width: 80%;
+    max-width: 500px;
+    border: 2px solid white;
+    margin: 20px 0;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.btn:hover {
+    color: rgb(0, 0, 0);
+    color: black;
+}
+
+/* Navigation */
+.nav {
+    margin-top: 40px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    transition: 0.3s;
+    background-color: white;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+line-height: 4;
+    transition: 0.3s ease-in-out;
+
+
+}
+
+.nav ul li a:hover {
+    opacity: 0.7;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    color: rgb(0, 0, 0);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: block; /* If items are stacked vertically */
+    margin: 5px 0;  /* Adjust this value to reduce vertical spacing */
+    line-height: .1; /* Lower values tighten spacing */
+}
