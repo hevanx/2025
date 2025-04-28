@@ -1,138 +1,160 @@
-/* General Styling */
+/* Mobile-First General Styling */
 body {
-    
-    background-color: #ffffff;
-
-    color: #fff;
-    text-align: center;
     margin: 0;
     padding: 0;
-
-    
-        background-image: url('house shirt.png'); /* Path to your image */
-        background-size: cover;  /* Makes the image cover the whole screen */
-        background-position: center;  /* Centers the image */
-        background-repeat: no-repeat; /* Prevents repeating */
-        height: 100vh; /* Ensures the body takes full viewport height */
-        margin: 0;
-        padding: 0;
-    
-    
+    text-align: center;
+    background: #ffffff url('../img/house shirt.png') center/cover no-repeat;
+    min-height: 100vh;
+    color: #000;
+    font-family: 'Arial', sans-serif; /* You could swap this for something cooler later */
 }
 
-/* Fullscreen Container */
+/* Header (Navigation) */
+.header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85); /* Slight transparency */
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+/* Nav Bar */
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Mobile first: vertical */
+    align-items: center;
+    gap: 15px;
+    color: #000;
+}
+
+.nav ul li {
+    width: 80%;
+}
+
+.nav ul li a {
+    display: block;
+    width: 100%;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    padding: 15px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s ease-in-out;
+}
+
+.nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Main Container */
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-top: 300px; /* Enough space below nav */
     min-height: 100vh;
 }
 
 /* Hero Section */
 .hero {
-    text-align: center;
-    padding: 50px 20px;
+    padding: 20px 10px;
 }
 
 .hero h1 {
-    font-size: 5rem;
+    font-size: 2.8rem;
     font-weight: bold;
     letter-spacing: 5px;
-    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    color: #000;
 }
-h4 {
-    color: rgb(17, 0, 255);
-    text-align: center
-}
-
 
 .hero h2 {
-    font-size: 1.8rem;
-    margin: 10px 0 30px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
     text-transform: uppercase;
     opacity: 0.8;
-    color: rgb(0, 0, 0);
+    color: #000;
 }
 
 .album-cover {
     width: 80%;
-    max-width: 500px;
-    border: 2px solid white;
+    max-width: 400px;
+    border: 5px solid white;
+    border-radius: 8px; /* slight rounding */
     margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* clean shadow pop */
 }
 
 /* Button */
 .btn {
     display: inline-block;
     background-color: white;
-    color: rgb(0, 0, 0);
-    border: 2px solid rgb(0, 0, 0);
+    color: black;
+    border: 2px solid black;
     padding: 15px 30px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    transition: 0.3s ease-in-out;
+    font-size: 1rem;
+    margin-top: 20px;
     text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .btn:hover {
-    color: rgb(0, 0, 0);
-    color: black;
-}
-
-/* Navigation */
-.nav {
-    margin-top: 40px;
-}
-
-.nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.nav ul li a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    letter-spacing: 3px;
-    transition: 0.3s;
-    background-color: white;
-    border: 2px solid rgb(0, 0, 0);
-    padding: 15px 30px;
-    text-transform: uppercase;
-    font-weight: bold;
-line-height: 4;
-    transition: 0.3s ease-in-out;
-
-
-}
-
-.nav ul li a:hover {
-    opacity: 0.7;
+    background-color: #f0f0f0;
 }
 
 /* Footer */
-footer {
+.footer {
     margin-top: 50px;
     font-size: 0.9rem;
-    opacity: 0.6;
-    color: rgb(0, 0, 0);
+    opacity: 0.7;
+    color: black;
+    padding-bottom: 20px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+/* ------------------- Desktop Version ------------------- */
+@media (min-width: 768px) {
+    .nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 27px;
+    }
 
-li {
-    display: block; /* If items are stacked vertically */
-    margin: 5px 0;  /* Adjust this value to reduce vertical spacing */
-    line-height: .1; /* Lower values tighten spacing */
+    .nav ul li {
+        width: auto;
+    }
+
+    .nav ul li a {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+    .hero {
+        padding-top: 200px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding-top: 270px;
+
+    }
 }
