@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <link rel="stylesheet" href="style/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+
+  <script src="js/achievements.js"></script>
+  <script src="js/profile.js"></script>
+
+
+
+
+
+
+</head>
+
+<body class="dark-bg">
+
+<nav>
+  <ul>
+    <li><a href="index.html" data-ach="nav_home">HOME</a></li>
+    <li><a href="music.html" data-ach="nav_music">MUSIC</a></li>
+    <li><a href="video.html" data-ach="nav_video">VIDEO</a></li>
+    <li class="active"><a href="profile.html">PROFILE</a></li>
+  </ul>
+</nav>
+
+
+<main>
+  <img id="profileImage" class="profile-picture" src="" alt="Profile Picture" style="width:100px; height:100px; border-radius:50%;" />
+
+<div class="profile-info">
+  <p><strong>Welcome [Username]</strong></p>
+  <p id="joinLine">Joined 2025 – <a href="#" id="editProfileLink" style="color:#00ff84;">Edit Profile</a></p>
+</div>
+
+<!-- Hidden edit form -->
+
+<section id="editPanel" class="auth-card hidden">
+  <h2 class="auth-title">Edit Profile</h2>
+
+  <form id="editForm" class="auth-form">
+    <input type="text" id="editUsername" class="auth-input" placeholder="Username" required />
+    <input type="email" id="editEmail" class="auth-input" placeholder="Email" required />
+    <input type="password" id="editPassword" class="auth-input" placeholder="New Password" />
+
+
+    <input type="file" id="editProfilePic" class="auth-file" accept="image/*" />
+
+    <button type="button" id="removePicBtn" class="btn outline">Remove current picture</button>
+
+    <button type="submit" class="btn primary">Save Changes</button>
+    <button type="button" id="cancelEditBtn" class="btn secondary">Cancel</button>
+    <button type="button" id="logoutBtn" class="btn linkish">Log out</button>
+  </form>
+</section>
+
+
+  <hr style="margin: 1rem auto; width: 60%; border-color: #333;" />
+  <div class="achievements">
+    <p>Achievements Unlocked 0/8</p>
+    <ul id="achievementsList">
+      <li>1 #</li>
+      <li>2 #</li>
+      <li>3 #</li>
+      <li>4 #</li>
+      <li>5 #</li>
+      <li>6 #</li>
+      <li>7 #</li>
+      <li>8 #</li>
+    </ul>
+  </div>
+</main>
+
+
+<footer>
+  <a href="https://instagram.com/_hevanx_" target="_blank" data-ach="social_click"><i class="fab fa-instagram fa-lg"></i></a>
+  <a href="https://tiktok.com/@king_crypid_" target="_blank" data-ach="social_click"><i class="fab fa-tiktok fa-lg"></i></a>
+  <a href="https://youtube.com/@hevanx293" target="_blank" data-ach="social_click"><i class="fab fa-youtube fa-lg"></i></a>
+</footer>
+
+
+
+</body>
+</html>

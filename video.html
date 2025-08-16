@@ -10,32 +10,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 </head>
-<script type="module">
-  import { unlock } from './js/achievements.js';
-  unlock('nav_home'); // visiting home page
-</script>
-
 <body class="dark-bg">
 
   <nav>
     <ul>
-      <li class="active"><a href="index.html">HOME</a></li>
+      <li ><a href="index.html">HOME</a></li>
       <li ><a href="music.html">MUSIC</a></li>
-      <li ><a href="video.html">VIDEO</a></li>
+      <li class="active"><a href="video.html">VIDEO</a></li>
       <li ><a href="profile.html">PROFILE</a></li>
     </ul>
 
-
   </nav>
 
-  <main>
-    <img src="img/hevanx.png" alt="Logo" class="logo" />
-<p class="spotify-label"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/2H8Y6HeUjTXz1MlYZ5ZKbl?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
+<main>
+  <img src="img/hevanx.png" alt="Logo" class="logo" />
+<div class="video-wrapper">
+  <iframe 
+    width="560" height="315" src="https://www.youtube.com/embed/ONayx17cdWI?si=hlS1k2_b0rFGiOIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 
-<a href="signup.html" class="btn primary" id="signupBtn" data-ach="signup_click">SIGN UP</a>
+  </iframe>
+</div>
+<br>
+<div class="video-wrapper">
+  <iframe 
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/P1Pl-Nmi12c?si=AF3nE0XCV94QKIvt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </iframe>
+</div>
 
-
-  </main>
+</main>
 
 <footer>
   <a href="https://instagram.com/_hevanx_" target="_blank" data-ach="social_click"><i class="fab fa-instagram fa-lg"></i></a>
@@ -47,6 +49,3 @@
 
 </body>
 </html>
-
-
-

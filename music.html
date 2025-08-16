@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <link rel="stylesheet" href="style/styles.css" />
+  <script src="js/achievments.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+</head>
+<script type="module">
+  import { unlock } from './js/achievements.js';
+  unlock('nav_music'); // visiting music page
+</script>
+
+<body class="dark-bg">
+
+  <nav>
+    <ul>
+      <li ><a href="index.html">HOME</a></li>
+      <li class="active"><a href="music.html">MUSIC</a></li>
+      <li ><a href="video.html">VIDEO</a></li>
+      <li ><a href="profile.html">PROFILE</a></li>
+    </ul>
+
+  </nav>
+
+<!-- Same head/nav/footer as above -->
+<main>
+  <img src="img/hevanx.png" alt="Logo" class="logo" />
+  <p class="spotify-label"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/2H8Y6HeUjTXz1MlYZ5ZKbl?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
+
+<ul class="music-links">
+  <li><a href="https://open.spotify.com/artist/2evIfrS6NcgxfLq0fWV5rI?si=f_hMUXeQSsyRWvafzOrirA" target="_blank">SPOTIFY</a></li>
+  <li><a href="https://music.apple.com/us/artist/hevanx/1468055386" target="_blank">APPLE MUSIC</a></li>
+  <li><a href="https://tiktok.com/@king_crypid_" target="_blank">TIKTOK</a></li>
+  <li><a href="https://instagram.com/_hevanx_" target="_blank">INSTAGRAM</a></li>
+  <li><a href="https://youtube.com/@hevanx293" target="_blank">YOUTUBE</a></li>
+</ul>
+
+</main>
+
+
+<footer>
+  <a href="https://instagram.com/_hevanx_" target="_blank" data-ach="social_click"><i class="fab fa-instagram fa-lg"></i></a>
+  <a href="https://tiktok.com/@king_crypid_" target="_blank" data-ach="social_click"><i class="fab fa-tiktok fa-lg"></i></a>
+  <a href="https://youtube.com/@hevanx293" target="_blank" data-ach="social_click"><i class="fab fa-youtube fa-lg"></i></a>
+</footer>
+
+
+
+</body>
+</html>
