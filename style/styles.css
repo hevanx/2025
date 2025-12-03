@@ -226,9 +226,7 @@ a {
   text-decoration: none;
 }
 
-.music-links a:hover {
-  color: #00ff84;
-}
+
 
 footer a {
   color: #00ff84;
@@ -282,4 +280,5 @@ footer a:hover {
     max-width: 60%;
   }
 }
+
 
