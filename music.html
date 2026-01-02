@@ -2,52 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- More descriptive and accurate title -->
+  <title>Hevanx Music</title>
+
   <link rel="stylesheet" href="style/styles.css" />
   <script src="js/achievments.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap"
+        rel="stylesheet">
 </head>
-<script type="module">
-  import { unlock } from './js/achievements.js';
-  unlock('nav_music'); // visiting music page
-</script>
 
 <body class="dark-bg">
+  <script type="module">
+    import { unlock } from './js/achievements.js';
+    unlock('nav_music'); /* visiting music page */
+  </script>
 
-  <nav>
+  <nav aria-label="Main site navigation">
     <ul>
-      <li ><a href="index.html">HOME</a></li>
-      <li class="active"><a href="music.html">MUSIC</a></li>
-      <li ><a href="video.html">VIDEO</a></li>
-      <li ><a href="profile.html">PROFILE</a></li>
-      <li ><a href="https://hevanx.bigcartel.com/" target="_blank">SHOP</a></li>
-    </ul>
+      <li><a href="index.html">HOME</a></li>
+      <li class="active"><a href="music.html" aria-current="page">MUSIC</a></li>
+      <li><a href="video.html">VIDEO</a></li>
 
+      <li><a href="https://hevanx.bigcartel.com/" target="_blank" rel="noopener noreferrer">
+        SHOP
+      </a></li>
+    </ul>
   </nav>
 
-<!-- Same head/nav/footer as above -->
-<main>
-  <img src="img/hevanx.png" alt="Logo" class="logo" />
-  <p class="spotify-label"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/2H8Y6HeUjTXz1MlYZ5ZKbl?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
+  <main>
+    <!-- Main page heading added -->
+    <h1 class="page-title">Hevanx Music</h1>
 
-<ul class="music-links">
-  <li><a href="https://open.spotify.com/artist/2evIfrS6NcgxfLq0fWV5rI?si=f_hMUXeQSsyRWvafzOrirA" target="_blank">SPOTIFY</a></li>
-  <li><a href="https://music.apple.com/us/artist/hevanx/1468055386" target="_blank">APPLE MUSIC</a></li>
-  <li><a href="https://tiktok.com/@_hevan.x_" target="_blank">TIKTOK</a></li>
-  <li><a href="https://instagram.com/_hevanx_" target="_blank">INSTAGRAM</a></li>
-  <li><a href="https://youtube.com/@hevanx293" target="_blank">YOUTUBE</a></li>
-</ul>
+    <!-- Alt text made meaningful -->
+    <img src="img/hevanx.png" alt="Hevanx logo" class="logo" />
 
-</main>
+    <!-- Featured album section with heading and iframe title -->
+    <section aria-labelledby="featured-album-heading">
+      <h2 id="featured-album-heading" class="spotify-label">
+        Featured album: Stones
+      </h2>
 
+      <div class="spotify-embed">
+        <iframe
+          title="Spotify player for Hevanx single Stones"
+          style="border-radius:12px"
+          src="https://open.spotify.com/embed/album/2H8Y6HeUjTXz1MlYZ5ZKbl?utm_source=generator"
+          width="100%" height="160" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
 
-<footer>
-  <a href="https://instagram.com/_hevanx_" target="_blank" data-ach="social_click"><i class="fab fa-instagram fa-lg"></i></a>
-  <a href="https://tiktok.com/@_hevan.x_" target="_blank" data-ach="social_click"><i class="fab fa-tiktok fa-lg"></i></a>
-  <a href="https://youtube.com/@hevanx293" target="_blank" data-ach="social_click"><i class="fab fa-youtube fa-lg"></i></a>
-</footer>
+    <!-- Music platforms list with a heading -->
+    <section aria-labelledby="listen-heading">
+      <h2 id="listen-heading">Listen on your favorite platform</h2>
+
+      <ul class="music-links">
+        <li>
+          <a href="https://open.spotify.com/artist/2evIfrS6NcgxfLq0fWV5rI?si=f_hMUXeQSsyRWvafzOrirA"
+             target="_blank" rel="noopener noreferrer">
+            Spotify <span class="visually-hidden"></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://music.apple.com/us/artist/hevanx/1468055386"
+             target="_blank" rel="noopener noreferrer">
+            Apple Music <span class="visually-hidden"></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://tiktok.com/@_hevan.x_"
+             target="_blank" rel="noopener noreferrer">
+            TikTok <span class="visually-hidden"></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/_hevanx_"
+             target="_blank" rel="noopener noreferrer">
+            Instagram <span class="visually-hidden"></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://youtube.com/@hevanx293"
+             target="_blank" rel="noopener noreferrer">
+            YouTube <span class="visually-hidden"></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer aria-label="Hevanx social media">
+    <a href="https://instagram.com/_hevanx_" target="_blank" rel="noopener noreferrer"
+       aria-label="Hevanx on Instagram" data-ach="social_click">
+      <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
+    </a>
+    <a href="https://tiktok.com/@_hevan.x_" target="_blank" rel="noopener noreferrer"
+       aria-label="Hevanx on TikTok" data-ach="social_click">
+      <i class="fab fa-tiktok fa-lg" aria-hidden="true"></i>
+    </a>
+    <a href="https://youtube.com/@hevanx293" target="_blank" rel="noopener noreferrer"
+       aria-label="Hevanx on YouTube" data-ach="social_click">
+      <i class="fab fa-youtube fa-lg" aria-hidden="true"></i>
+    </a>
+  </footer>
+</body>
+</html>
+
 
 
 
