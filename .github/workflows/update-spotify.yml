@@ -68,30 +68,31 @@ jobs:
 
           new_url = f"https://open.spotify.com/embed/album/{album_id}?utm_source=generator"
 
-          with open('index.html', 'r') as f:
-              content = f.read()
+          for filename in ['index.html', 'music.html']:
+              with open(filename, 'r') as f:
+                  content = f.read()
 
-          new_content = re.sub(
-              r'https://open\.spotify\.com/embed/album/[A-Za-z0-9]+\?utm_source=generator',
-              new_url,
-              content
-          )
+              new_content = re.sub(
+                  r'https://open\.spotify\.com/embed/album/[A-Za-z0-9]+\?utm_source=generator',
+                  new_url,
+                  content
+              )
 
-          with open('index.html', 'w') as f:
-              f.write(new_content)
+              with open(filename, 'w') as f:
+                  f.write(new_content)
 
-          if content != new_content:
-              print(f"Updated embed to album: {album_id}")
-          else:
-              print("Embed already up to date.")
+              if content != new_content:
+                  print(f"Updated {filename} to album: {album_id}")
+              else:
+                  print(f"{filename} already up to date.")
           EOF
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet index.html || (
-            git add index.html &&
+          git diff --quiet index.html music.html || (
+            git add index.html music.html &&
             git commit -m "Auto-update Spotify embed to latest release" &&
             git push
           )
