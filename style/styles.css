@@ -89,6 +89,10 @@ nav li.active a {
 main {
   padding: 1.5rem;
   text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo1 {
@@ -97,7 +101,7 @@ main {
 }
 
 .logo {
-  max-width: 60%;
+  max-width: 280px;
   margin: 1rem auto;
 }
 
@@ -240,29 +244,72 @@ footer a:hover {
   display: none !important;
 }
 
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+  display: none;
+}
+
 /* ===== Mobile optimization ===== */
 @media (max-width: 600px) {
   nav {
-    flex-wrap: wrap;
-    padding: 0.5rem;
+    position: relative;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 19px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
   }
 
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    border-top: 1px solid #333;
+    z-index: 100;
+    padding: 0.25rem 0;
+  }
+
+  nav ul.nav-open {
+    display: flex;
   }
 
   nav ul li {
-    margin: 4px 6px;
+    margin: 0;
+    text-align: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #222;
   }
 
   nav a {
-    font-size: 0.8rem; /* smaller to fit mobile */
-    padding: 6px 8px;
+    font-size: 1rem;
+    padding: 0;
   }
 
   .logo {
-    max-width: 80%;
+    max-width: 50%;
   }
 
   main {
@@ -270,15 +317,5 @@ footer a:hover {
   }
 }
 
-/* ===== Tablet & up ===== */
-@media (min-width: 768px) {
-  nav a {
-    font-size: 1rem;
-  }
-
-  .logo {
-    max-width: 60%;
-  }
-}
 
 

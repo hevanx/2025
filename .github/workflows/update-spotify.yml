@@ -1,0 +1,83 @@
+name: Update Spotify Embed
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # Runs daily at 2pm UTC
+  workflow_dispatch:       # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-embed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Get Spotify access token
+        id: token
+        run: |
+          TOKEN=$(curl -s -X POST "https://accounts.spotify.com/api/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=client_credentials&client_id=${{ secrets.SPOTIFY_CLIENT_ID }}&client_secret=${{ secrets.SPOTIFY_CLIENT_SECRET }}" \
+            | jq -r '.access_token')
+          echo "token=$TOKEN" >> $GITHUB_OUTPUT
+
+      - name: Get latest release ID
+        id: release
+        run: |
+          ALBUM_ID=$(curl -s \
+            "https://api.spotify.com/v1/artists/2evIfrS6NcgxfLq0fWV5rI/albums?include_groups=single,album&limit=1&market=US" \
+            -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
+            | jq -r '.items[0].id')
+
+          if [ "$ALBUM_ID" = "null" ] || [ -z "$ALBUM_ID" ]; then
+            echo "Could not fetch latest release, skipping."
+            exit 0
+          fi
+
+          echo "album_id=$ALBUM_ID" >> $GITHUB_OUTPUT
+
+      - name: Update index.html
+        env:
+          ALBUM_ID: ${{ steps.release.outputs.album_id }}
+        run: |
+          python3 << 'EOF'
+          import re, os
+
+          album_id = os.environ.get('ALBUM_ID', '')
+          if not album_id:
+              print("No album ID, skipping.")
+              exit(0)
+
+          new_url = f"https://open.spotify.com/embed/album/{album_id}?utm_source=generator"
+
+          with open('index.html', 'r') as f:
+              content = f.read()
+
+          new_content = re.sub(
+              r'https://open\.spotify\.com/embed/album/[A-Za-z0-9]+\?utm_source=generator',
+              new_url,
+              content
+          )
+
+          with open('index.html', 'w') as f:
+              f.write(new_content)
+
+          if content != new_content:
+              print(f"Updated embed to album: {album_id}")
+          else:
+              print("Embed already up to date.")
+          EOF
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet index.html || (
+            git add index.html &&
+            git commit -m "Auto-update Spotify embed to latest release" &&
+            git push
+          )
