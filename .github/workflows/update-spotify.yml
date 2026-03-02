@@ -28,17 +28,31 @@ jobs:
       - name: Get latest release ID
         id: release
         run: |
-          ALBUM_ID=$(curl -s \
-            "https://api.spotify.com/v1/artists/2evIfrS6NcgxfLq0fWV5rI/albums?include_groups=single,album&limit=1&market=US" \
-            -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
-            | jq -r '.items[0].id')
+          TOKEN="${{ steps.token.outputs.token }}"
 
-          if [ "$ALBUM_ID" = "null" ] || [ -z "$ALBUM_ID" ]; then
+          LATEST_ALBUM=$(curl -s \
+            "https://api.spotify.com/v1/artists/2evIfrS6NcgxfLq0fWV5rI/albums?include_groups=album&limit=1&market=US" \
+            -H "Authorization: Bearer $TOKEN" \
+            | jq -r '.items[0] | "\(.release_date) \(.id)"')
+
+          LATEST_SINGLE=$(curl -s \
+            "https://api.spotify.com/v1/artists/2evIfrS6NcgxfLq0fWV5rI/albums?include_groups=single&limit=1&market=US" \
+            -H "Authorization: Bearer $TOKEN" \
+            | jq -r '.items[0] | "\(.release_date) \(.id)"')
+
+          echo "Latest album:  $LATEST_ALBUM"
+          echo "Latest single: $LATEST_SINGLE"
+
+          # Pick whichever has the more recent release date
+          NEWEST=$(printf "%s\n%s\n" "$LATEST_ALBUM" "$LATEST_SINGLE" | sort -r | head -1)
+          RELEASE_ID=$(echo "$NEWEST" | awk '{print $2}')
+
+          if [ "$RELEASE_ID" = "null" ] || [ -z "$RELEASE_ID" ]; then
             echo "Could not fetch latest release, skipping."
             exit 0
           fi
 
-          echo "album_id=$ALBUM_ID" >> $GITHUB_OUTPUT
+          echo "album_id=$RELEASE_ID" >> $GITHUB_OUTPUT
 
       - name: Update index.html
         env:
